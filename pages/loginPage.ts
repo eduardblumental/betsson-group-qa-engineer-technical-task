@@ -1,22 +1,21 @@
-import { Page, Locator } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
+import { byTestId } from "../utils";
 
 export class LoginPage {
-  private page: Page;
   private usernameInput: Locator;
   private passwordInput: Locator;
   private loginButton: Locator;
   private errorMessage: Locator;
 
   constructor(page: Page) {
-    this.page = page;
-    this.usernameInput = page.locator("#user-name");
-    this.passwordInput = page.locator("#password");
-    this.loginButton = page.locator("#login-button");
-    this.errorMessage = page.locator('[data-test="error"]');
+    this.usernameInput = byTestId(page, "username");
+    this.passwordInput = byTestId(page, "password");
+    this.loginButton = byTestId(page, "login-button");
+    this.errorMessage = byTestId(page, "error");
   }
 
   async goto(): Promise<void> {
-    await this.page.goto("https://www.saucedemo.com/");
+    await this.usernameInput.page().goto("https://www.saucedemo.com/");
   }
 
   async login(username: string, password: string): Promise<void> {

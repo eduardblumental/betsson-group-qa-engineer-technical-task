@@ -5,7 +5,7 @@ test("Valid login", async ({ page }) => {
   const loginPage = new LoginPage(page);
   await loginPage.goto();
   await loginPage.login("standard_user", "secret_sauce");
-  
+
   expect(page.url()).toBe("https://www.saucedemo.com/inventory.html");
 });
 
