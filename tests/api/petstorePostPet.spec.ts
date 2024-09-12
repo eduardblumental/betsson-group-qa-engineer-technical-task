@@ -2,13 +2,14 @@ import { test, expect } from "@playwright/test";
 
 test.describe("POST /pet API Tests", () => {
   const baseURL = "https://petstore.swagger.io/v2";
-  const petId: number = 777;
   const petName: string = "testDog";
+  const validPetId: number = 777;
+  const invalidPetId: string = "invalid-id";
 
   test("POST /pet - Add a valid pet", async ({ request }) => {
     const response = await request.post(`${baseURL}/pet`, {
       data: {
-        id: petId,
+        id: validPetId,
         category: { id: 1, name: "Dogs" },
         name: petName,
         photoUrls: ["https://example.com/dog.jpg"],
@@ -21,14 +22,14 @@ test.describe("POST /pet API Tests", () => {
 
     const responseBody = await response.json();
     expect(responseBody).toEqual(
-      expect.objectContaining({ id: petId, name: petName })
+      expect.objectContaining({ id: validPetId, name: petName })
     );
   });
 
   test("POST /pet - Add a pet with invalid id", async ({ request }) => {
     const response = await request.post(`${baseURL}/pet`, {
       data: {
-        id: "invalid-id",
+        id: invalidPetId,
         category: { id: 1, name: "Dogs" },
         name: petName,
         photoUrls: ["https://example.com/dog.jpg"],
