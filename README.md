@@ -62,8 +62,8 @@ This repository contains UI tests for [Swag Labs](https://www.saucedemo.com) web
 
 - **POST /pet API Tests**:
   1. Adds a valid pet (status: `200 OK`).
-  2. Attempts to add a pet with an invalid ID (expected status: `405`, actual: `500`).
+  2. Attempts to add a pet with an invalid ID (**Test fails**, expected status: `405`, actual: `500`).
 - **GET /pet/{petId} API Tests**:
   1. Retrieves a valid pet by ID (status: `200 OK`).
-  2. Tries to retrieve a pet with an invalid ID format (expected status: `400`, actual: `404`).
+  2. Tries to retrieve a pet with an invalid ID format (**Test fails**, expected status: `400`, actual: `404`).
   3. Retrieves a non-existent pet (status: `404 Not Found`).
