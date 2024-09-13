@@ -1,6 +1,6 @@
 ## Project Description
 
-This repository contains UI tests for [Swag Labs](https://www.saucedemo.com) web app and API tests for [Petstore API](https://petstore.swagger.io). The tests are written using the **Playwright** framework. For UI tests the **Page Object Model** pattern is used. Test specifications are located in the **tests** directory. Elements and interactions with app pages are defined in the **pages** directory. There is a sample test report `report.html` included in the project.
+This repository contains UI tests for [Swag Labs](https://www.saucedemo.com) web app and API tests for [Petstore API](https://petstore.swagger.io). The tests are written using **Playwright** framework. For UI tests the **Page Object Model** pattern is used. Test specifications are located in the **tests** directory. Elements and interactions with UI pages are defined in the **pages** directory. There is a sample test report `report.html` included in the project.
 
 ## Project Structure
 
